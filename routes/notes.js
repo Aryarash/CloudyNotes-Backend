@@ -44,9 +44,9 @@ router.post('/addnotes', [body('title').isLength({ min: 5 }), body('description'
 })
 
 
-// Route 3 : Update an existing note POST "/api/notes/updatenote"
+// Route 3 : Update an existing note PUT "/api/notes/updatenote"
 
-router.post('/updatenote/:id', fetchuser, async (req, res) => {
+router.put('/updatenote/:id', fetchuser, async (req, res) => {
 
     try {
         const { title, description, tag } = req.body;
@@ -74,9 +74,9 @@ router.post('/updatenote/:id', fetchuser, async (req, res) => {
     }
 });
 
-// Route 4 : Delete note using POST request '/api/notes/deletenote'
+// Route 4 : Delete note using delete request '/api/notes/deletenote'
 
-router.post('/deletenote/:id', fetchuser, async (req, res) => {
+router.delete('/deletenote/:id', fetchuser, async (req, res) => {
     try {
 
         // find the note to be delete and delete it
